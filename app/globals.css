@@ -3,25 +3,74 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-geist-sans: 'Montserrat', sans-serif; /* Default fallback */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* styles/globals.css */
+.custom-hover {
+    @apply relative z-10 overflow-hidden  transition-all duration-300;
+  }
+  
+  .custom-hover::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full bg-black transform -translate-x-full transition-transform duration-300;
+    z-index: -1;
+  }
+  
+  .custom-hover:hover::before {
+    @apply translate-x-0;
+  }
+  
+  .custom-hover:hover {
+    @apply text-white;
+  }
+
+
+  /* pulse animation */
+/* styles/globals.css */
+.pulse-container {
+  position: relative;
+  display: inline-block; /* Ensures the pulse is sized correctly around the button */
+  z-index: 0; /* Lower z-index for the pulse container */
+}
+
+.pulse-animation {
+  position: relative;
+  z-index: 10; /* Keeps the button on top */
+}
+
+.pulse-animation::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%; /* Width of the pulse effect */
+  height: 150%; /* Height of the pulse effect */
+  background-color: rgba(242, 166, 141, 0.5); /* Set to bg-primary color with some transparency */
+  border-radius: 50%; /* Make it circular */
+  transform: translate(-50%, -50%) scale(0); /* Center it and scale down to 0 */
+  animation: pulse 2s infinite; /* Animation duration (increased to 1.5 seconds) and repetition */
+  z-index: -1; /* Send it behind the button and container */
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0); /* Start scaled down */
+    opacity: 1; /* Start fully visible */
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2); /* Slow scaling effect */
+    opacity: 0; /* Fade out */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0); /* End scaled down */
+    opacity: 0; /* Ensure it ends invisible */
   }
 }
+
+
+/* ----------------------------------- */

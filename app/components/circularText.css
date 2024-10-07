@@ -1,0 +1,24 @@
+.absolute {
+    position: absolute; /* Ensure absolute positioning */
+  }
+  
+  .textCircle {
+    height: 200px; /* You can adjust the height based on your design */
+    display: flex; /* Flex to enable alignment */
+    animation: animate 7s infinite; /* Animation */
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .circularSpan {
+    position: absolute;
+    transform-origin: 0 100px;
+  }
+  

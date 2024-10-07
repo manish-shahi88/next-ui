@@ -1,0 +1,87 @@
+/* .absolute {
+  position: absolute; 
+}
+
+.text {
+  height: 200px;
+  display: flex;
+  animation: animate 7s infinite; 
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.circularSpan {
+  position: absolute;
+  transform-origin: 0 100px; 
+}
+
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-white {
+  background-color: white;
+  border-radius: 50%; 
+}
+
+.h-32 {
+  height: 130px; 
+}
+
+.w-32 {
+  width: 130px; 
+} */
+
+
+.absolute {
+  position: absolute;
+}
+
+.text {
+  height: 200px;
+  display: flex;
+  animation: animate 7s infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spanStyle { /* Renamed to avoid global "span" selector */
+  position: absolute;
+  transform-origin: 0 100px;
+}
+
+.flexCenter { /* Renamed to avoid conflict with Tailwind CSS */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgWhite {
+  background-color: white;
+  border-radius: 50%;
+}
+
+.h-32 {
+  height: 130px;
+}
+
+.w-32 {
+  width: 130px;
+}
